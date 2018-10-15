@@ -20,7 +20,7 @@
     "@types/glob": "^5.0.35",
     "@types/helmet": "^0.0.40",
     "@types/ioredis": "^4.0.1",
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^23.3.5",
     "@types/lodash": "^4.14.116",
     "@types/nodemailer": "^4.6.2",
     "@types/nodemailer-smtp-transport": "^2.7.4",
