@@ -1,10 +1,26 @@
 {
   "name": "@gshop/common",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "lint": "tslint --project tsconfig.json -c tslint.json 'src/**/*.ts' --fix"
+    "lint": "tslint 'src/**/*.ts' --fix",
+    "precommit": "lint-staged"
+  },
+  "devDependencies": {
+    "lint-staged": "^7.3.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint",
+      "yarn test",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
