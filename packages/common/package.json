@@ -14,8 +14,8 @@
   "lint-staged": {
     "*.ts": [
       "yarn lint",
-      "yarn test",
-      "git add"
+      "git add",
+      "yarn test"
     ]
   },
   "husky": {
