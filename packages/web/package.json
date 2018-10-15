@@ -1,5 +1,5 @@
 {
-  "name": "@b2bconnect/web",
+  "name": "@gshop/web",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon server/index.ts",
