@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "lerna run test"
+    "test": "lerna exec -- npm run test"
   },
   "private": true,
   "devDependencies": {
