@@ -1,0 +1,10 @@
+{
+  "name": "@gshop/common",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint --project tsconfig.json -c tslint.json 'src/**/*.ts' --fix"
+  }
+}
