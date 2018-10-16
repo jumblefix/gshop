@@ -15,12 +15,10 @@
     "*.ts": [
       "yarn lint",
       "git add",
-      "yarn test"
+      "jest --bail --findRelatedTests"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "dependencies": {
+    "yup": "^0.26.6"
   }
 }

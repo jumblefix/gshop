@@ -5,3 +5,5 @@ export const reverseStr = (str: string) =>
     .join('');
 
 export const addAll = (...args: number[]) => args.reduce((c, p) => c + p, 0);
+
+export { default as rules } from './validation-rules';

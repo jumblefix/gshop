@@ -1,0 +1,46 @@
+type Query {
+  me: UserResponse
+  getUser(id: ID!): UserResponse
+  listUsers(isAdmin: Boolean, page: Int): [UserResponse]
+}
+
+type Mutation {
+  register(
+    name: String!
+    email: String!
+    password: String!
+    mobile: String
+    admin: Boolean
+  ): UserResponse
+  login(email: String!, password: String!): UserResponse
+  logout: Boolean
+  resendVerifySignup: Boolean
+  sendResetPassword(email: String!): Boolean
+  verifyResetPassword(
+    token: String!
+    password: String!
+    confirmPassword: String!
+  ): UserResponse
+  changePassword(oldPassword: String!, password: String!): UserResponse
+  changeEmail(email: String!): UserResponse
+}
+
+type UserResponse {
+  id: ID
+  name: String
+  email: String
+  mobile: String
+}
+
+type Error {
+  path: String!
+  message: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  mobile: String
+}

@@ -1,0 +1,32 @@
+scalar Date
+
+type Query {
+  listProducts(page: Int): [ProductResponse]
+  getProduct(id: ID!): ProductResponse
+  getProductByCategory(categoryId: ID!): [ProductResponse]
+}
+
+type Mutation {
+  addProduct(
+    title: String!
+    coverImage: String!
+    description: String!
+    rating: Int!
+    price: Float!
+    offerPrice: Float!
+    categoryId: ID!
+  ): ProductResponse
+}
+
+type ProductResponse {
+  id: ID
+  title: String
+  slug: String
+  coverImage: String
+  description: String
+  rating: Int
+  price: Float
+  offerPrice: Float
+  yourSavings: Float
+  category: CategoryResponse
+}

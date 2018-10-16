@@ -1,2 +1,3 @@
-export const multiplyAll = (...args: number[]) =>
-  args.reduce((c, p) => c * p, 1);
+import slugify from 'slugify';
+
+export const makeSlug = (str: string) => slugify(str, { lower: true });

@@ -1,9 +1,9 @@
-import { multiplyAll } from './utils';
+import { makeSlug } from './utils';
 
 describe('utils', () => {
   describe('multiply', () => {
     it('should multiply args passed', () => {
-      expect(multiplyAll(1, 2, 3)).toEqual(6);
+      expect(makeSlug('Hello World')).toEqual('hello-world');
     });
   });
 });
