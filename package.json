@@ -53,6 +53,8 @@
     "tslint-config-airbnb": "^5.9.2",
     "tslint-config-prettier": "^1.14.0",
     "typescript": "^3.1.1",
-    "typescript-babel-jest": "^1.0.5"
+    "typescript-babel-jest": "^1.0.5",
+    "@types/graphql": "^14.0.1",
+    "@types/node": "^10.11.3"
   }
 }
