@@ -11,6 +11,7 @@
     "analyze:browser": "BUNDLE_ANALYZE=browser next build",
     "debug": "ndb nodemon server/index.ts",
     "export": "next build && next export",
+    "lint": "tslint 'pages/**/*.ts{,x}' 'server/**/*.ts' --fix",
     "precommit": "lint-staged"
   },
   "dependencies": {
@@ -56,11 +57,6 @@
       "git add",
       "yarn test"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "license": "MIT"
 }

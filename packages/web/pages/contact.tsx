@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Title, Paragraph } from '../components/Text/Text';
+import { Paragraph, Title } from '../components/Text/Text';
 
 export default class Contact extends Component {
   render() {
