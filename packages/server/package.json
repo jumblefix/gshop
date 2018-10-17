@@ -25,7 +25,7 @@
     "*.ts": [
       "prettier --write",
       "yarn lint",
-      "git add",
+      "git add .",
       "jest --bail --findRelatedTests"
     ]
   },
