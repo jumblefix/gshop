@@ -60,8 +60,8 @@
     "*.{ts,tsx}": [
       "prettier --write",
       "yarn lint",
-      "git add .",
-      "jest --bail --findRelatedTests"
+      "jest --bail --findRelatedTests",
+      "git add ."
     ]
   },
   "license": "MIT"
