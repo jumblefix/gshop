@@ -13,6 +13,7 @@
   },
   "lint-staged": {
     "*.ts": [
+      "prettier --write",
       "yarn lint",
       "git add",
       "jest --bail --findRelatedTests"

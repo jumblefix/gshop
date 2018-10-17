@@ -13,7 +13,8 @@
     "debug": "ndb nodemon server/index.ts",
     "export": "next build && next export",
     "lint": "tslint 'pages/**/*.ts{,x}' 'server/**/*.ts' --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "pretty":"prettier-tslint fix 'pages/**/*.ts{,x}'"
   },
   "dependencies": {
     "@gshop/common": "1.0.0",
@@ -56,7 +57,8 @@
     "typescript-babel-jest": "^1.0.5"
   },
   "lint-staged": {
-    "*.ts": [
+    "*.{ts,tsx}": [
+      "prettier --write",
       "yarn lint",
       "git add",
       "jest --bail --findRelatedTests"

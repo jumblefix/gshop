@@ -10,8 +10,8 @@ const typeDefs = gql`
 
 const resolvers: IResolvers = {
   Query: {
-    hello: (_, { name }) => `Hello World! ${name}`,
-  },
+    hello: (_, { name }) => `Hello World! ${name}`
+  }
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
@@ -22,10 +22,10 @@ server.applyMiddleware({
   app,
   cors: {
     credentials: true,
-    origin: 'http://localhost:3000',
-  },
+    origin: 'http://localhost:3000'
+  }
 });
 
 app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`),
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );

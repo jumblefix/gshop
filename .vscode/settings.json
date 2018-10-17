@@ -1,6 +1,6 @@
 {
   "files.autoSave": "onFocusChange",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "git.enableSmartCommit": true,
   "files.exclude": {
     "**/node_modules/": true,

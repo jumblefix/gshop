@@ -5,7 +5,7 @@ const config = {
   SITE_NAME: 'My Website',
   SITE_TITLE: 'My Website',
   SITE_DESCRIPTION: 'My Website description',
-  SITE_IMAGE: '',
+  SITE_IMAGE: ''
 };
 
 export default class MyDocument extends Document {
