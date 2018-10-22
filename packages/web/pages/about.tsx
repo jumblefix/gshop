@@ -1,3 +1,4 @@
+import { reverseStr } from '@gshop/common';
 import React, { Component } from 'react';
 import { Button } from 'reakit';
 import NavMenu from '../components/NavMenu/NavMenu';
@@ -8,7 +9,7 @@ export default class About extends Component {
     return (
       <div>
         <NavMenu />
-        <Title>About Us</Title>
+        <Title>{reverseStr('About Us')}</Title>
         <SubTitle>This is an about us page.</SubTitle>
         <Paragraph>Welcome to the about us page.</Paragraph>
         <Paragraph>This is an example using styled component</Paragraph>
