@@ -9,14 +9,14 @@ import {
   PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
-  VersionColumn,
+  VersionColumn
 } from 'typeorm';
 import { makeSlug } from './../utils/utils';
 import { Category } from './Category';
 
 @Entity('products')
-@Unique(['slug', 'isbn'])
-@Index(['isBanned', 'publishedYear'])
+@Unique(['slug'])
+@Index(['isBanned'])
 export class Product extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
