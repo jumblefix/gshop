@@ -4,7 +4,7 @@ const iconv = require('iconv-lite');
 const encodings = require('iconv-lite/encodings');
 iconv.encodings = encodings;
 
-import { ConnectionOptions, createConnection } from 'typeorm';
+import { createConnection } from 'typeorm';
 
 const {
   DB_HOST,

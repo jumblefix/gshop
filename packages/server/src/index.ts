@@ -1,6 +1,6 @@
 // tslint:disable-next-line:no-var-requires
 require('dotenv-safe').config();
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import * as connectRedis from 'connect-redis';
 import * as express from 'express';
 import * as ExpressSession from 'express-session';
