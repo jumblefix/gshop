@@ -1,17 +1,17 @@
 {
   "files.autoSave": "onFocusChange",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "git.enableSmartCommit": true,
   "files.exclude": {
     "**/node_modules/": true,
-    "package-lock.json": true
+    "package-lock.json": true,
+    "yarn.lock": true
   },
   "git.autofetch": true,
-  "prettier.eslintIntegration": true,
-  "editor.fontSize": 14,
   "editor.fontLigatures": true,
   "tslint.autoFixOnSave": true,
-  "prettier.trailingComma": "all",
+  "editor.emptySelectionClipboard": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "Dhayanandhan",
     "Segoe",
@@ -31,6 +31,7 @@
     "gitignore",
     "gmail",
     "graphiql",
+    "gshop",
     "lerna",
     "lpush",
     "lrange",
@@ -50,7 +51,5 @@
     "typeorm",
     "varchar",
     "zeit"
-  ],
-  "editor.emptySelectionClipboard": false,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  ]
 }
