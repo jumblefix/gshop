@@ -3,11 +3,11 @@ module.exports = {
   rootDir: './',
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest'
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$',
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
-  collectCoverage: false,
+  collectCoverage: true,
   testEnvironment: 'node',
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
@@ -17,6 +17,6 @@ module.exports = {
     '!src/index.ts',
     '!src/seeder.ts',
     '!**/node_modules/**',
-    '!**/vendor/**',
-  ],
+    '!**/vendor/**'
+  ]
 };
