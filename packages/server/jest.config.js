@@ -6,7 +6,10 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$',
-  testPathIgnorePatterns: ['<rootDir>/node_modules/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/src/utils/test-client.ts'
+  ],
   collectCoverage: true,
   testEnvironment: 'node',
   collectCoverageFrom: [
@@ -14,6 +17,7 @@ module.exports = {
     '!src/typings/**',
     '!src/migration/**',
     '!src/utils/create-types.ts',
+    '!src/utils/test-client.ts',
     '!src/index.ts',
     '!src/seeder.ts',
     '!**/node_modules/**',
