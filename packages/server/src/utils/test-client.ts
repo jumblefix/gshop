@@ -1,68 +1,66 @@
 import { gql } from 'apollo-server-express';
-import Axios from 'axios';
 import { print } from 'graphql';
 import MutationQueries from './test-mutation-queries';
 
 export default class TestClient extends MutationQueries {
   url: string;
-  constructor(url: string) {
-    super(url);
+  testing: boolean;
+  constructor(url: string, testing: boolean = false) {
+    super(url, testing);
     this.url = url;
+    this.testing = testing;
   }
 
   async me() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        {
-          me {
+    const query = print(gql`
+      {
+        me {
+          id
+          name
+          email
+        }
+      }
+    `);
+    return this.returnQueryOrPromise(query);
+  }
+
+  async getCart() {
+    const query = print(gql`
+      {
+        getCart {
+          id
+          product {
+            id
+            title
+            price
+          }
+          user {
             id
             name
             email
           }
         }
-      `)
-    });
-  }
-
-  async getCart() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        {
-          getCart {
-            id
-            product {
-              id
-              title
-              price
-            }
-            user {
-              id
-              name
-              email
-            }
-          }
-        }
-      `)
-    });
+      }
+    `);
+    return this.returnQueryOrPromise(query);
   }
 
   async listMainCategories() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        {
-          listMainCategories {
-            id
-            name
-            slug
-          }
+    const query = print(gql`
+      {
+        listMainCategories {
+          id
+          name
+          slug
         }
-      `)
-    });
+      }
+    `);
+
+    return this.returnQueryOrPromise(query);
   }
 
   async getChildCategories(id: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         {
           getChildCategories(id: "${id}") {
             id
@@ -80,13 +78,12 @@ export default class TestClient extends MutationQueries {
             }
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async getBreadCrumbPath(id: string) {
-    return Axios.post(this.url, {
-      query: print(gql`{
+    const query = print(gql`{
         getBreadCrumbPath(id: "${id}") {
           id
           name
@@ -102,29 +99,27 @@ export default class TestClient extends MutationQueries {
             }
           }
         }
-      }`)
-    });
+      }`);
+    return this.returnQueryOrPromise(query);
   }
 
   async listProducts() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        {
-          listProducts {
-            id
-            title
-            price
-            slug
-            description
-          }
+    const query = print(gql`
+      {
+        listProducts {
+          id
+          title
+          price
+          slug
+          description
         }
-      `)
-    });
+      }
+    `);
+    return this.returnQueryOrPromise(query);
   }
 
   async getProduct(id: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         {
           getProduct(id: "${id}") {
             id
@@ -134,13 +129,12 @@ export default class TestClient extends MutationQueries {
             description
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async getProductByCategory(id: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         {
           getProductByCategory(categoryId: "${id}") {
             id
@@ -150,13 +144,12 @@ export default class TestClient extends MutationQueries {
             description
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async getUser(id: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         {
           getUser(id: "${id}") {
             id
@@ -164,21 +157,20 @@ export default class TestClient extends MutationQueries {
             email
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async listUsers() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        {
-          listUsers {
-            id
-            name
-            email
-          }
+    const query = print(gql`
+      {
+        listUsers {
+          id
+          name
+          email
         }
-      `)
-    });
+      }
+    `);
+    return this.returnQueryOrPromise(query);
   }
 }

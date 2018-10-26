@@ -4,13 +4,21 @@ import { print } from 'graphql';
 
 export default class MutationQueries {
   url: string;
-  constructor(url: string) {
+  testing: boolean;
+  constructor(url: string, testing: boolean) {
     this.url = url;
+    this.testing = testing;
+  }
+
+  returnQueryOrPromise(query: any) {
+    if (this.testing) {
+      return query;
+    }
+    return Axios.post(this.url, { query });
   }
 
   async register(name: string, email: string, password: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           register(name: "${name}", email: "${email}", password: "${password}") {
             id
@@ -18,13 +26,12 @@ export default class MutationQueries {
             email
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async addToCart(productId: string, quantity: number = 1) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           addToCart(productId: "${productId}", quantity: ${quantity}) {
             id
@@ -40,33 +47,30 @@ export default class MutationQueries {
             }
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async removeFromCart(productId: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           removeFromCart(productId:"${productId}")
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async emptyCart() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        mutation {
-          emptyCart
-        }
-      `)
-    });
+    const query = print(gql`
+      mutation {
+        emptyCart
+      }
+    `);
+    return this.returnQueryOrPromise(query);
   }
 
   async addCategory(name: string, parent: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           addCategory(name: "${name}", parentId: "${parent}") {
             id
@@ -74,8 +78,8 @@ export default class MutationQueries {
             slug
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async addProduct(
@@ -87,8 +91,7 @@ export default class MutationQueries {
     offerPrice: string,
     categoryId: string
   ) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           addProduct(
             title: "${title}"
@@ -106,13 +109,12 @@ export default class MutationQueries {
             description
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async login(email: string, password: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           login(email: "${email}", password: "${password}") {
             id
@@ -120,38 +122,35 @@ export default class MutationQueries {
             email
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async logout() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        mutation {
-          logout
-        }
-      `)
-    });
+    const query = print(gql`
+      mutation {
+        logout
+      }
+    `);
+    return this.returnQueryOrPromise(query);
   }
 
   async resendVerifySignup() {
-    return Axios.post(this.url, {
-      query: print(gql`
-        mutation {
-          resendVerifySignup
-        }
-      `)
-    });
+    const query = print(gql`
+      mutation {
+        resendVerifySignup
+      }
+    `);
+    return this.returnQueryOrPromise(query);
   }
 
   async sendResetPassword(email: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           sendResetPassword(email:"${email}")
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async verifyResetPassword(
@@ -159,8 +158,7 @@ export default class MutationQueries {
     password: string,
     confirmPassword: string
   ) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           verifyResetPassword(token:"${token}",password:"${password}",confirmPassword:"${confirmPassword}"){
             id
@@ -168,13 +166,12 @@ export default class MutationQueries {
             email
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async changePassword(oldPassword: string, password: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           changePassword(oldPassword:"${oldPassword}",password:"${password}"){
             id
@@ -182,13 +179,12 @@ export default class MutationQueries {
             email
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 
   async changeEmail(email: string) {
-    return Axios.post(this.url, {
-      query: print(gql`
+    const query = print(gql`
         mutation {
           changeEmail(email:"${email}"){
             id
@@ -196,7 +192,7 @@ export default class MutationQueries {
             email
           }
         }
-      `)
-    });
+      `);
+    return this.returnQueryOrPromise(query);
   }
 }

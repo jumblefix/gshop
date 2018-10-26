@@ -1,4 +1,6 @@
 // tslint:disable-next-line:no-var-requires
+require('dotenv-safe').config();
+// tslint:disable-next-line:no-var-requires
 const iconv = require('iconv-lite');
 // tslint:disable-next-line:no-var-requires
 const encodings = require('iconv-lite/encodings');

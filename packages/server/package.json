@@ -28,14 +28,15 @@
     "test": "jest",
     "lint": "tslint 'src/**/*.ts' --fix",
     "precommit": "lint-staged",
-    "gen-types": "ts-node ./src/utils/create-types.ts"
+    "gen-types": "ts-node ./src/utils/create-types.ts",
+    "test-only": "jest --bail --findRelatedTests ./src/**/**.ts"
   },
   "lint-staged": {
     "*.ts": [
       "prettier --write",
       "yarn lint",
       "git add .",
-      "jest --bail --findRelatedTests"
+      "yarn test-only"
     ]
   },
   "devDependencies": {
