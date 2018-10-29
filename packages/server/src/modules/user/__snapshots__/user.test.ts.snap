@@ -7,3 +7,27 @@ Object {
   },
 }
 `;
+
+exports[`user register should register 1`] = `
+Object {
+  "data": Object {
+    "register": null,
+  },
+  "errors": Array [
+    [GraphQLError: Validation failed],
+  ],
+}
+`;
+
+exports[`user register should register 2`] = `"email@email.com"`;
+
+exports[`user register should register 3`] = `
+Object {
+  "data": Object {
+    "register": null,
+  },
+  "errors": Array [
+    [GraphQLError: email@email.com is already registered with us],
+  ],
+}
+`;

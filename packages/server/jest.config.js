@@ -18,6 +18,7 @@ module.exports = {
     '!src/migration/**',
     '!src/utils/create-types.ts',
     '!src/utils/test-client.ts',
+    '!src/utils/test-mutation-queries.ts',
     '!src/index.ts',
     '!src/seeder.ts',
     '!**/node_modules/**',
