@@ -54,7 +54,7 @@ export const resolvers: AppResolverMap = {
       if (parentId) {
         parent = await db.getRepository(Category).findOne(parentId);
         if (!parent) {
-          throw new Error('Invalid parent');
+          throw new Error(ERROR_INVALID_CATEGORY);
         }
       }
 
